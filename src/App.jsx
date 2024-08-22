@@ -4,6 +4,7 @@ import AdmissionFormPage from "@/pages/AdmissionForm";
 import AdmissionHome from "@/pages/AdmissionHome";
 import AdmissionSuccess from "@/pages/AdmissionSuccess";
 import AdmissionTracking from "@/pages/AdmissionTracking";
+import AdmissionTrackingResult from "@/pages/AdmissionTrackingResult";
 import ApplicationPreview from "@/pages/ApplicationPreview";
 import Homepage from "@/pages/Homepage";
 import LoginPage from "@/pages/LoginPage";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/admission/home" element={<AdmissionHome />} />
           <Route path="/admission/tracking" element={<AdmissionTracking />} />
+          <Route path="/admission/tracking/:trackingId" element={<AdmissionTrackingResult />} />
           <Route path="/admission/form" element={<AdmissionFormPage />} />
           <Route path="/admission/application/preview/:id" element={<ApplicationPreview />} />
           <Route path="/admin/dashboard" element={<Dashboard />} />

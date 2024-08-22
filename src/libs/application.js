@@ -84,3 +84,16 @@ export const previewApplication = async (id, values) => {
     console.log(error);
   }
 };
+
+// get app by tracking id
+export const getApplicationDetailsByTrackingId = async (id) => {
+  try {
+    const res = await fetch(apiUrl + "/application/get-app-by-tracking/" + id, {
+      method: "GET",
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+

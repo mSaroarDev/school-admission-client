@@ -1,25 +1,48 @@
+import FormPreview from "@/components/FormPreview";
+import { getApplicationDetailsByTrackingId } from "@/libs/application";
 import { showError } from "@/utils/showToast";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import Loader from "../components/loader/Loader";
 
-export default function AdmissionTracking() {
+export default function AdmissionTrackingResult() {
   const navigate = useNavigate();
+  const { trackingId } = useParams();
+  const [loading, setLoading] = useState(false);
 
-  // const getApp = async () => {
-  //   try {
-  //     const res = await getApplicationDetailsByTrackingId()
-  //   } catch (error) {
-  //     console.log(error);
+  //   get result
+  const [data, setData] = useState({});
+  const getAppDetails = async () => {
+    try {
+      setLoading(true);
+      const res = await getApplicationDetailsByTrackingId(trackingId);
+      console.log(res);
 
-  //   }
-  // }
+      if (res.status === 404) {
+        showError("The tracking id is invalid");
+        navigate("/admission/tracking");
+      } else if (res.status === 200) {
+        const data = await res.json();
+        setData(data?.data);
+      }
+    } catch (error) {
+      console.log(error);
+      showError("Internal Server Error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getAppDetails();
+  }, [trackingId]);
 
   // navigate function
   const [trackinId, setTrackingId] = useState();
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!trackinId){
-      return showError("Please input tracking id")
+    if (!trackinId) {
+      return showError("Please input tracking id");
     }
     navigate(`/admission/tracking/${trackinId}`);
   };
@@ -32,7 +55,7 @@ export default function AdmissionTracking() {
         </h1>
       </div>
       <main className="p-10 w-full mx-auto">
-        <form className="flex flex-wrap items-center justify-center gap-5">
+        <form className="flex flex-wrap items-center justify-center gap-5 mb-5">
           <label htmlFor="">Admission Tracking No:</label>
           <input
             type="text"
@@ -63,6 +86,8 @@ export default function AdmissionTracking() {
             <span>Search</span>
           </button>
         </form>
+
+        {loading ? <Loader /> : <FormPreview data={data} />}
       </main>
     </>
   );
