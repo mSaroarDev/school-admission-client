@@ -1,9 +1,9 @@
 import FormPreview from "@/components/FormPreview";
+import Loader from "@/components/loader/Loader";
 import { getApplicationDetailsByTrackingId } from "@/libs/application";
 import { showError } from "@/utils/showToast";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Loader from "../components/loader/Loader";
 
 export default function AdmissionTrackingResult() {
   const navigate = useNavigate();
@@ -88,6 +88,8 @@ export default function AdmissionTrackingResult() {
         </form>
 
         {loading ? <Loader /> : <FormPreview data={data} />}
+
+        {/* <PDFPrint comp={<FormPreview data={data} />} /> */}
       </main>
     </>
   );

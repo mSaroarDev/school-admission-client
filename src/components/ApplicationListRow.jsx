@@ -65,9 +65,9 @@ export default function ApplicationListRow({ data, getData }) {
         </td>
         <td className="px-6 py-4 border border-gray-300">
           <span
-            className={`text-sm px-1 rounded ${
+            className={`text-xs px-1 rounded ${
               data?.currStatus === "Submitted" || data?.currStatus === "Waiting"
-                ? "bg-[#F6B000] text-black"
+                ? "bg-[#F6B000] text-white"
                 : data?.currStatus === "Accepted"
                 ? "bg-[#02AC4B] text-white"
                 : "bg-[#D23B3C] text-white"
