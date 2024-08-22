@@ -10,6 +10,7 @@ export default function LoginPage() {
     <>
       <div className="h-screen w-full flex flex-col items-center justify-center">
         <div className="w-[500px] p-10 rounded-xl shadow-md">
+          <h2 className='font-semibold mb-5 text-center'>Email: example@gmail.com, Password: 123456</h2>
           <LoginForm />
         </div>
 
