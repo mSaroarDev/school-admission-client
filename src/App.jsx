@@ -8,6 +8,7 @@ import ApplicationPreview from "@/pages/ApplicationPreview";
 import Homepage from "@/pages/Homepage";
 import LoginPage from "@/pages/LoginPage";
 import Dashboard from "@/pages/admin/Dashboard";
+import AppDetails from "@/pages/admin/applications/Details";
 import List from "@/pages/admin/applications/List";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
@@ -26,6 +27,7 @@ function App() {
           <Route path="/admission/application/preview/:id" element={<ApplicationPreview />} />
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/applications" element={<List />} />
+          <Route path="/admin/applications/:id" element={<AppDetails />} />
           <Route path="/admission/success" element={<AdmissionSuccess />} />
           <Route path="/auth/login" element={<LoginPage />} />
         </Routes>

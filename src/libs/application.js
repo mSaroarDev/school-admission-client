@@ -67,3 +67,20 @@ export const deleteApplication = async (id) => {
     console.log(error);
   }
 };
+
+// delete an app
+export const previewApplication = async (id, values) => {
+  try {
+    const res = await fetch(apiUrl + "/application/preview/" + id, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};

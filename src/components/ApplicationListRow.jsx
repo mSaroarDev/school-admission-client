@@ -1,5 +1,6 @@
 import { deleteApplication } from "@/libs/application";
 import { showError } from "@/utils/showToast";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function ApplicationListRow({ data, getData }) {
@@ -62,20 +63,34 @@ export default function ApplicationListRow({ data, getData }) {
         <td className="px-6 py-4 border border-gray-300">
           {data?.contact_info?.mobile}
         </td>
-        <td className="px-6 py-4 border border-gray-300">{data?.currStatus}</td>
-        <td className="flex items-center px-6 py-4 justify-center">
-          <a
-            href="#"
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+        <td className="px-6 py-4 border border-gray-300">
+          <span
+            className={`text-sm px-1 rounded ${
+              data?.currStatus === "Submitted" || data?.currStatus === "Waiting"
+                ? "bg-[#F6B000] text-black"
+                : data?.currStatus === "Accepted"
+                ? "bg-[#02AC4B] text-white"
+                : "bg-[#D23B3C] text-white"
+            }`}
           >
-            View
-          </a>
-          <button
-            onClick={deleteAnApp}
-            className="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
-          >
-            Remove
-          </button>
+            {data?.currStatus}
+          </span>
+        </td>
+        <td className="px-6 py-4">
+          <div>
+            <Link
+              to={`/admin/applications/${data?._id}`}
+              className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+            >
+              View
+            </Link>
+            <button
+              onClick={deleteAnApp}
+              className="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
+            >
+              Remove
+            </button>
+          </div>
         </td>
       </tr>
     </>
