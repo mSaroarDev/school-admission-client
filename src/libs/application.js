@@ -1,0 +1,43 @@
+import { userApiUrl } from "@/utils/apiUrl";
+
+const apiUrl = userApiUrl();
+
+// user is log out
+export const createApplication = async (values) => {
+  try {
+    const res = await fetch(apiUrl + "/application/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// user is log out
+export const getApplicationDetails = async (id) => {
+  try {
+    const res = await fetch(apiUrl + "/application/get-app/" + id, {
+      method: "GET",
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// mark submitted
+export const markSubmitted = async (id) => {
+  try {
+    const res = await fetch(apiUrl + "/application/mark-submitted/" + id, {
+      method: "POST",
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};

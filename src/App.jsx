@@ -2,6 +2,7 @@ import Toploader from "@/components/Toploader";
 import MasterLayout from "@/layout/MasterLayout";
 import AdmissionFormPage from "@/pages/AdmissionForm";
 import AdmissionHome from "@/pages/AdmissionHome";
+import AdmissionSuccess from "@/pages/AdmissionSuccess";
 import AdmissionTracking from "@/pages/AdmissionTracking";
 import ApplicationPreview from "@/pages/ApplicationPreview";
 import Homepage from "@/pages/Homepage";
@@ -25,6 +26,7 @@ function App() {
           <Route path="/admission/application/preview/:id" element={<ApplicationPreview />} />
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/applications" element={<List />} />
+          <Route path="/admission/success" element={<AdmissionSuccess />} />
           <Route path="/auth/login" element={<LoginPage />} />
         </Routes>
       </MasterLayout>
