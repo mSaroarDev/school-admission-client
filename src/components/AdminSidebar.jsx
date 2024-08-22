@@ -104,9 +104,7 @@ export default function AdminSidebar({ currUser }) {
 
             <button
               onClick={logoutUser}
-              className={`_side-links ${
-                pathname.startsWith("/admin/applications") && "_sidebar-active"
-              }`}
+              className={`_side-links`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -41,3 +41,29 @@ export const markSubmitted = async (id) => {
     console.log(error);
   }
 };
+
+// user is log out
+export const getApplications = async () => {
+  try {
+    const res = await fetch(apiUrl + "/application/get-applications", {
+      method: "GET",
+      credentials: "include",
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// delete an app
+export const deleteApplication = async (id) => {
+  try {
+    const res = await fetch(apiUrl + "/application/delete/" + id, {
+      method: "DELETE",
+      credentials: "include",
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
