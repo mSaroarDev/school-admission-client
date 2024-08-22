@@ -1,10 +1,16 @@
 import AdminSidebar from "@/components/AdminSidebar";
+import PrivateRoutes from "@/components/PrivateRoutes";
+import { useUserInfo } from "@/utils/useUserInfo";
 
-export default function AdminLayout({ children, pathname }) {
+export default function AdminLayout({ children }) {
+  const currUser = useUserInfo();
+
   return (
     <>
-      <AdminSidebar pathname={pathname} />
-      <div className="ml-[250px] p-10">{children}</div>
+      <PrivateRoutes>
+        <AdminSidebar currUser={currUser} />
+        <div className="ml-[250px] p-10">{children}</div>
+      </PrivateRoutes>
     </>
   );
 }

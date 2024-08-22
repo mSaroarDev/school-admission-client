@@ -15,19 +15,19 @@ export default function Navbar() {
               Home
             </Link>
             <Link
-              to="/"
+              to="/admission/home"
               className="text-gray-500 hover:text-brand transition-all duration-150"
             >
               Admission Form
             </Link>
             <Link
-              to="/"
+              to="/admission/tracking"
               className="text-gray-500 hover:text-brand transition-all duration-150"
             >
               Tracking
             </Link>
             <Link
-              to="/"
+              to="/auth/login"
               className="bg-brand text-white rounded-full px-6 py-2.5 transition-all duration-150 border border-brand hover:bg-transparent hover:text-brand"
             >
               Teacher Login

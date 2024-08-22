@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 export default function Hero() {
   return (
     <>
-      <section className="h-screen w-full">
-        <main className="h-full w-full flex items-center justify-between">
-          <div className="w-full">
+      <section>
+        <main className="flex items-center justify-between">
+          <div className="h-[500px] w-full flex flex-col items-start justify-center">
             <p className="text-3xl font-light">Best Learning</p>
             <h1 className="font-bold text-4xl my-2">Education Platform</h1>
             <h1 className="font-bold text-5xl text-brand">Get Admission</h1>

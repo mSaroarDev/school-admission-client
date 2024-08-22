@@ -9,6 +9,8 @@ export default function MasterLayout({ children }) {
     <>
       {pathname.startsWith("/admin") ? (
         <AdminLayout pathname={pathname}>{children}</AdminLayout>
+      ) : pathname.startsWith("/auth") ? (
+        <>{children}</>
       ) : (
         <>
           <Navbar />

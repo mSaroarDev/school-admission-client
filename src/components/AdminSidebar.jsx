@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 
-export default function AdminSidebar() {
+export default function AdminSidebar({currUser}) {
   const { pathname } = useLocation();
 
   return (
@@ -12,16 +12,16 @@ export default function AdminSidebar() {
           <div className="_profile flex flex-col items-center justify-center mt-5">
             <div className="h-[80px] w-[80px] rounded-full ring-2 ring-blue-600 overflow-hidden">
               <img
-                src="/avatar.png"
+                src={currUser?.image}
                 alt="image"
                 className="w-full h-full object-cover"
               />
             </div>
             <h2 className="text-sm text-black font-semibold mt-3">
-              Saroar Jahan
+              {currUser?.userName}
             </h2>
             <p className="text-xs text-gray-600 font-light">
-              msaroar.dev@gmail.com
+            {currUser?.email}
             </p>
           </div>
 
