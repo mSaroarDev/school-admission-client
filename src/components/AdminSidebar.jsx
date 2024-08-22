@@ -1,7 +1,36 @@
-import { Link, useLocation } from "react-router-dom";
+import { logout } from "@/libs/auth";
+import { showError, showSuccess } from "@/utils/showToast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
-export default function AdminSidebar({currUser}) {
+export default function AdminSidebar({ currUser }) {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  // logout function
+  const logoutUser = async () => {
+    Swal.fire({
+      title: "Confirm?",
+      text: "You will be logout...",
+      icon: "question",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const res = await logout();
+
+          if (res.ok) {
+            navigate("/auth/login");
+            showSuccess("Log Out Success");
+          } else {
+            showError("Logout Failed");
+          }
+        } catch (error) {
+          console.log(error);
+          showError("Internal Server Error");
+        }
+      }
+    });
+  };
 
   return (
     <>
@@ -21,7 +50,7 @@ export default function AdminSidebar({currUser}) {
               {currUser?.userName}
             </h2>
             <p className="text-xs text-gray-600 font-light">
-            {currUser?.email}
+              {currUser?.email}
             </p>
           </div>
 
@@ -72,6 +101,30 @@ export default function AdminSidebar({currUser}) {
 
               <span>Applications</span>
             </Link>
+
+            <button
+              onClick={logoutUser}
+              className={`_side-links ${
+                pathname.startsWith("/admin/applications") && "_sidebar-active"
+              }`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"
+                />
+              </svg>
+
+              <span>Logout</span>
+            </button>
           </div>
         </div>
       </div>

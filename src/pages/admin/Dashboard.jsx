@@ -1,14 +1,16 @@
-
 import StatisticsCard from "@/components/StatisticsCard";
+import { useUserInfo } from "@/utils/useUserInfo";
 import { IoGiftOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 export default function Dashboard() {
+  const currUser = useUserInfo();
+
   return (
     <>
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="font-semibold text-2xl">Hello, Sara</h2>
+          <h2 className="font-semibold text-2xl">Hello, {currUser?.userName}</h2>
           <p className="font-regular text-sm text-gray-600">
             Today is 10 Oct, 2024
           </p>

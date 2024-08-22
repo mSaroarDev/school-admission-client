@@ -45,3 +45,15 @@ export const loggedUser = async () => {
     console.log(error);
   }
 };
+
+// user is log out
+export const logout = async () => {
+  try {
+    const res = await fetch(apiUrl + "/auth/logout", {
+      credentials: "include",
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
