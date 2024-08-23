@@ -5,6 +5,8 @@ import Spinner from '../components/spinner/Spinner';
 
 export default function LoginPage() {
   const isLogged = useAuth();
+  console.log("isLogged", isLogged);
+  
 
   return isLogged === null ? <Spinner /> : isLogged === true ? <Navigate to='/admin/dashboard' /> : (
     <>

@@ -14,6 +14,7 @@ export const useAuth = () => {
         setIsLogged(false);
       }
     } catch (error) {
+      console.log(error);
       setIsLogged(false);
     }
   };
