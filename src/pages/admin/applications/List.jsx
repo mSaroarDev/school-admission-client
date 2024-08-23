@@ -1,5 +1,5 @@
 import ApplicationListRow from "@/components/ApplicationListRow";
-import Spinner from "@/components/spinner/Spinner";
+import Loader from "@/components/loader/Loader";
 import { getApplications } from "@/libs/application";
 import { useEffect, useState } from "react";
 
@@ -27,7 +27,7 @@ export default function List() {
   }, []);
   
 
-  return loading ? <Spinner /> : (
+  return loading ? <Loader /> : (
     <>
       <h2 className="font-semibold text-base mb-5">Applications</h2>
 

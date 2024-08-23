@@ -1,5 +1,6 @@
 import BackButton from "@/components/BackButton";
 import FormPreview from "@/components/FormPreview";
+import Loader from "@/components/loader/Loader";
 import { getApplicationDetails, previewApplication } from "@/libs/application";
 import { showError } from "@/utils/showToast";
 import { useEffect, useState } from "react";
@@ -8,7 +9,7 @@ import Swal from "sweetalert2";
 
 export default function ApplicationPreview() {
   const { id } = useParams();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   // get application id
   const [data, setData] = useState();
@@ -61,7 +62,7 @@ export default function ApplicationPreview() {
     });
   };
 
-  return (
+  return loading ? <Loader /> : (
     <>
       <div>
         <div className="flex items-center justify-between">
