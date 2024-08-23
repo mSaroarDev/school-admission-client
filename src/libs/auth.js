@@ -52,6 +52,7 @@ export const loggedUser = async () => {
 export const logout = async () => {
   try {
     const res = await fetch(apiUrl + "/auth/logout", {
+      method: "POST",
       credentials: "include",
       cache: "no-store",
     });
