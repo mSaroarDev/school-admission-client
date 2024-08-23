@@ -23,6 +23,7 @@ export const getApplicationDetails = async (id) => {
   try {
     const res = await fetch(apiUrl + "/application/get-app/" + id, {
       method: "GET",
+      cache: "no-store",
     });
     return res;
   } catch (error) {
@@ -48,6 +49,7 @@ export const getApplications = async () => {
     const res = await fetch(apiUrl + "/application/get-applications", {
       method: "GET",
       credentials: "include",
+      cache: "no-store",
     });
     return res;
   } catch (error) {
@@ -90,10 +92,10 @@ export const getApplicationDetailsByTrackingId = async (id) => {
   try {
     const res = await fetch(apiUrl + "/application/get-app-by-tracking/" + id, {
       method: "GET",
+      cache: "no-store",
     });
     return res;
   } catch (error) {
     console.log(error);
   }
 };
-

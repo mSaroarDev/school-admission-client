@@ -25,6 +25,7 @@ export const userVerify = async () => {
   try {
     const res = await fetch(apiUrl + "/auth/verify-logged", {
       credentials: "include",
+      cache: "no-store",
     });
 
     return res;
@@ -38,6 +39,7 @@ export const loggedUser = async () => {
   try {
     const res = await fetch(apiUrl + "/auth/logged-user", {
       credentials: "include",
+      cache: "no-store",
     });
 
     return res;
@@ -51,6 +53,7 @@ export const logout = async () => {
   try {
     const res = await fetch(apiUrl + "/auth/logout", {
       credentials: "include",
+      cache: "no-store",
     });
     return res;
   } catch (error) {
