@@ -1,5 +1,4 @@
 import { logout } from "@/libs/auth";
-import { userApiUrl } from "@/utils/apiUrl";
 import { showError, showSuccess } from "@/utils/showToast";
 import Cookies from "js-cookie";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -9,7 +8,6 @@ import Swal from "sweetalert2";
 export default function AdminSidebar({ currUser }) {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const apiUrl = userApiUrl()
 
   // logout function
   const logoutUser = async () => {
@@ -21,6 +19,9 @@ export default function AdminSidebar({ currUser }) {
       if (result.isConfirmed) {
         try {
           const res = await logout();
+          const cookie = Cookies.get('token')
+          console.log("cookie", cookie);
+          
 
           if (res.ok) {
             Cookies.remove('token', { path: '/'})
