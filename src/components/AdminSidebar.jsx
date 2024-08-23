@@ -18,6 +18,7 @@ export default function AdminSidebar({ currUser }) {
       if (result.isConfirmed) {
         try {
           const res = await fetch(apiUrl + "/auth/logout", {
+            method: "POST",
             credentials: "include",
           });
           if (res.ok) {
