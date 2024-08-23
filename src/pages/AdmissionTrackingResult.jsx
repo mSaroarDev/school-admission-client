@@ -16,7 +16,6 @@ export default function AdmissionTrackingResult() {
     try {
       setLoading(true);
       const res = await getApplicationDetailsByTrackingId(trackingId);
-      console.log(res);
 
       if (res.status === 404) {
         showError("The tracking id is invalid");

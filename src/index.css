@@ -5,7 +5,7 @@
 
 @layer base {
   body {
-    @apply poppins-regular font-[14px] bg-body;
+    @apply poppins-regular text-[14px] bg-body;
   }
 
   main {
