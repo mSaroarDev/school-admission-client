@@ -38,7 +38,7 @@ export default function Dashboard() {
 
 
   return loading ? <Loader /> : (
-    <>
+    <div className="p-7">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="font-semibold text-2xl">Hello, {currUser?.userName}</h2>
@@ -83,6 +83,6 @@ export default function Dashboard() {
           text="Rejected"
         />
       </div>
-    </>
+    </div>
   );
 }

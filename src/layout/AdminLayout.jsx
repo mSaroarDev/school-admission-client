@@ -9,7 +9,7 @@ export default function AdminLayout({ children }) {
     <>
       <PrivateRoutes>
         <AdminSidebar currUser={currUser} />
-        <div className="ml-[250px] p-10">{children}</div>
+        <div className="ml-[250px]">{children}</div>
       </PrivateRoutes>
     </>
   );

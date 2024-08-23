@@ -28,7 +28,7 @@ export default function List() {
   
 
   return loading ? <Loader /> : (
-    <>
+    <div className="p-7">
       <h2 className="font-semibold text-base mb-5">Applications</h2>
 
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -42,7 +42,7 @@ export default function List() {
                 Applicant Name
               </th>
               <th scope="col" className="px-6 py-3 border border-gray-300">
-                Father Name
+                Tracking ID
               </th>
               <th scope="col" className="px-6 py-3 border border-gray-300">
                 Date of Birth
@@ -72,6 +72,6 @@ export default function List() {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 }

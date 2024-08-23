@@ -212,8 +212,8 @@ export default function FormPreview({data}) {
 
             <div className="col-span-6 flex flex-row items-center px-5 py-1.5">
               <div className="w-1/2 font-medium">Email</div>
-              <div className="w-1/2 border-b border-brand border-dotted">
-                :{` `} {data?.contact_info?.email || "N/A"}
+              <div className="w-1/2 border-b border-brand border-dotted whitespace-nowrap">
+                : {data?.contact_info?.email || "N/A"}
               </div>
             </div>
           </div>

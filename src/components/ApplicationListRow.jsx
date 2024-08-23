@@ -35,7 +35,7 @@ export default function ApplicationListRow({ data, getData }) {
   return (
     <>
       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-        <td className="w-20 h-20 p-4 border border-gray-300 ">
+        <td className="w-20 h-20 p-1.5 border border-gray-300 ">
           <img
             src={data?.media?.image}
             alt="avatar"
@@ -49,7 +49,7 @@ export default function ApplicationListRow({ data, getData }) {
           {data?.first_name} {data?.last_name}
         </th>
         <td className="px-6 py-4 border border-gray-300">
-          {data?.personal_info?.father_name}
+          {data?.tracking_id}
         </td>
         <td className="px-6 py-4 border border-gray-300">
           {data?.personal_info?.dob}
@@ -88,7 +88,7 @@ export default function ApplicationListRow({ data, getData }) {
               onClick={deleteAnApp}
               className="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
             >
-              Remove
+              Delete
             </button>
           </div>
         </td>

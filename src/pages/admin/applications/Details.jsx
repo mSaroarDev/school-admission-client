@@ -66,7 +66,7 @@ export default function ApplicationPreview() {
 
   return loading ? <Loader /> : (
     <>
-      <div>
+      <div className="p-7">
         <div className="flex items-center justify-between">
           <BackButton />
 
