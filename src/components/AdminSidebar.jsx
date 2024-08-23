@@ -1,12 +1,15 @@
 import { logout } from "@/libs/auth";
+import { userApiUrl } from "@/utils/apiUrl";
 import { showError, showSuccess } from "@/utils/showToast";
 import Cookies from "js-cookie";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
+
 export default function AdminSidebar({ currUser }) {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const apiUrl = userApiUrl()
 
   // logout function
   const logoutUser = async () => {
@@ -20,7 +23,7 @@ export default function AdminSidebar({ currUser }) {
           const res = await logout();
 
           if (res.ok) {
-            Cookies.remove('token')
+            Cookies.remove('token', { path: '/', domain: apiUrl })
             navigate("/auth/login");
             showSuccess("Log Out Success");
           } else {
