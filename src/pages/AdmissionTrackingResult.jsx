@@ -87,6 +87,22 @@ export default function AdmissionTrackingResult() {
           </button>
         </form>
 
+        <h1 className="font-semibold text-xl text-center mb-5">
+          Preview Application (Current Status is:{" "}
+          <span
+            className={`text-sm px-1 rounded ${
+              data?.currStatus === "Submitted" || data?.currStatus === "Waiting"
+                ? "bg-[#F6B000] text-black"
+                : data?.currStatus === "Accepted"
+                ? "bg-[#02AC4B] text-white"
+                : "bg-[#D23B3C] text-white"
+            }`}
+          >
+            {data?.currStatus}
+          </span>
+          )
+        </h1>
+
         {loading ? <Loader /> : <FormPreview data={data} />}
 
         {/* <PDFPrint comp={<FormPreview data={data} />} /> */}
