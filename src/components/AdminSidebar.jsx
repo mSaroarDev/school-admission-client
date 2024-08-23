@@ -1,10 +1,10 @@
+import { logout } from "@/libs/auth";
 import { showError, showSuccess } from "@/utils/showToast";
+import Cookies from "js-cookie";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { userApiUrl } from "../utils/apiUrl";
 
 export default function AdminSidebar({ currUser }) {
-  const apiUrl = userApiUrl();
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -17,19 +17,18 @@ export default function AdminSidebar({ currUser }) {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await fetch(apiUrl + "/auth/logout", {
-            method: "POST",
-            credentials: "include",
-          });
+          const res = await logout();
+
           if (res.ok) {
-            showSuccess("Logout success");
+            Cookies.remove('token')
             navigate("/auth/login");
+            showSuccess("Log Out Success");
           } else {
-            showError("Something going wrong");
+            showError("Logout Failed");
           }
         } catch (error) {
           console.log(error);
-          showError("Server Error");
+          showError("Internal Server Error");
         }
       }
     });
@@ -105,7 +104,10 @@ export default function AdminSidebar({ currUser }) {
               <span>Applications</span>
             </Link>
 
-            <button onClick={logoutUser} className={`_side-links`}>
+            <button
+              onClick={logoutUser}
+              className={`_side-links`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
