@@ -23,7 +23,7 @@ export default function AdminSidebar({ currUser }) {
           const res = await logout();
 
           if (res.ok) {
-            Cookies.remove('token', { path: '/', domain: apiUrl })
+            Cookies.remove('token', { path: '/'})
             navigate("/auth/login");
             showSuccess("Log Out Success");
           } else {
